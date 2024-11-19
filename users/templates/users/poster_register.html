@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster Registration</title>
+    <link rel="stylesheet" href="../../static/poster_register.css">
+</head>
+<body>
+    <div class="register-container">
+        <h1>Register as Poster</h1>
+        <form method="POST" class="register-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-register">Register</button>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a href="{% url 'login' %}">Login as User</a></p>
+        </div>
+    </div>
+</body>
+</html>

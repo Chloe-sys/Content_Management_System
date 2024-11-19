@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+    <link rel="stylesheet" href="../static/content.css">  <!-- Link to external CSS -->
+</head>
+<body>
+    <div class="container">
+        <h2>Posts List</h2>
+        <ul>
+            {% for post in posts %}
+                <li class="flex-container">
+                    <div>
+                        <h2>{{ post.title }}</h2>  <!-- Display the title -->
+                        <p>{{ post.content }}</p>  <!-- Display the content -->
+                        <small>Created at: {{ post.created_at }}</small><br>  <!-- Show creation date -->
+                        <small>Updated at: {{ post.updated_at }}</small>  <!-- Show update date -->
+                    </div>
+                    <div class="flex-container">
+                        <a href="{% url 'update_post' post.pk %}">
+                            <button>Edit</button>
+                        </a>
+                        <a href="{% url 'delete_post' post.pk %}">
+                            <button>Delete</button>
+                        </a>
+                    </div>
+                </li>
+            {% empty %}
+                <li>No posts available.</li>  <!-- Display message if no posts -->
+            {% endfor %}
+        </ul>
+        <a href="{% url 'create_post' %}">
+            <button>Create New Post</button>
+        </a>
+        <a href="{% url 'logout_poster' %}">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="../../static/post_detail.css">
+</head>
+<body>
+    <div class="post-detail-container">
+        <h1>{{ post.title }}</h1>
+        <div class="post-content">
+            <p>{{ post.content }}</p>
+        </div>
+
+        <div class="subscription-section">
+            {% if user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    {% if subscribed %}
+                        <button type="submit" name="unsubscribe" class="btn-subscribe unsubscribe">Unsubscribe</button>
+                    {% else %}
+                        <button type="submit" name="subscribe" class="btn-subscribe subscribe">Subscribe</button>
+                    {% endif %}
+                </form>
+            {% else %}
+                <p class="login-reminder">You must be logged in to subscribe to this post.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

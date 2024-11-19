@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="../../static/css/all_posts.css">
+</head>
+<body>
+    <div class="container">
+        <h2>All Posts</h2>
+        <ul>
+            {% for post in posts %}
+            <li>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.overview }}</p>
+                <a href="{% url 'post_detail' post.id %}">Read More</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

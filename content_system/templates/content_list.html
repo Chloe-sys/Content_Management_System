@@ -1,0 +1,6 @@
+<h2>Your Content</h2>
+<ul>
+    {% for content in contents %}
+        <li>{{ content.title }} - <a href="{% url 'content_update' content.id %}">Edit</a> | <a href="{% url 'content_delete' content.id %}">Delete</a></li>
+    {% endfor %}
+</ul>
